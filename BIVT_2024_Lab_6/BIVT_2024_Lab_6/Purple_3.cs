@@ -81,7 +81,11 @@ namespace Lab_6
             }
             public static void SetPlaces(Participant[] participants)
             {
-                if (participants == null || participants.Length == 0) return;
+                if (participants == null || participants.Length == 0 ) return;
+                for (int i = 0; i<participants.Length; i++)
+                {
+                    if (participants[i].Places == null) return;
+                }
                 for (int i = 0; i < participants[0].Places.Length; i++)
                 {
                     for (int j = 0; j < participants.Length; j++)
@@ -168,6 +172,7 @@ namespace Lab_6
             private static int SumP(Participant a)
             {
                 int sum = 0;
+                if (a.Places == null) return 0;
                 for (int i = 0; i < a.Places.Length; i++)
                     sum += a.Places[i];
                 return sum;
@@ -175,6 +180,7 @@ namespace Lab_6
             private static double SumM(Participant a)
             {
                 double sum = 0;
+                if (a.Marks == null) return 0;
                 for (int i = 0; i < a.Marks.Length; i++)
                     sum += a.Marks[i];
                 return sum;
