@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace BIVT_2024_Lab_6
+namespace Lab_6
 {
-    internal class Purple_1
+    public class Purple_1
     {
         public struct Participant
         {
