@@ -112,6 +112,11 @@ namespace Lab_6
             }
             public static void Sort(Participant[] array)
             {
+                if (array == null) return;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].Places == null) return;
+                }
                 for (int i = 0; i < array.Length; i++)
                 {
                     for (int j = 0; j < array.Length - 1 - i; j++)
