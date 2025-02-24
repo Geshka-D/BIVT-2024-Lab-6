@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.Schema;
 
-namespace BIVT_2024_Lab_6
+namespace Lab_6
 {
-    internal class Purple_3
+    public class Purple_3
     {
         public struct Participant
         {
@@ -54,7 +54,7 @@ namespace BIVT_2024_Lab_6
                     return score;
                 }
             }
-            public double TotalMark
+            private double TotalMark
             {
                 get
                 {
@@ -75,12 +75,13 @@ namespace BIVT_2024_Lab_6
             }
             public void Evaluate(double result)
             {
-                if (_marks == null) return;
+                if (_marks == null ||index == _marks.Length) return;
                 _marks[index] = result;
                 index++;
             }
             public static void SetPlaces(Participant[] participants)
             {
+                if (participants == null || participants.Length == 0) return;
                 for (int i = 0; i < participants[0].Places.Length; i++)
                 {
                     for (int j = 0; j < participants.Length; j++)
@@ -150,6 +151,7 @@ namespace BIVT_2024_Lab_6
 
             private static void SortPlaces(Participant a)
             {
+                if (a.Places == null) return;
                 for (int i = 0; i < a.Places.Length; i++)
                 {
                     for (int j = 0; j < a.Places.Length - 1 - i; j++)
