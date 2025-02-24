@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
-using static BIVT_2024_Lab_6.Purple_4;
+using static Lab_6.Purple_4;
 
-namespace BIVT_2024_Lab_6
+namespace Lab_6
 {
-    internal class Purple_4
+    public class Purple_4
     {
         public struct Sportsman
         {
@@ -56,6 +56,7 @@ namespace BIVT_2024_Lab_6
             public void Add(Sportsman sportsman)
             {
                 var s = Sportsmen;
+                if (s == null) return;
                 _sportsmen = new Sportsman[s.Length + 1];
                 Array.Copy(s, _sportsmen, s.Length);
                 _sportsmen[s.Length] = sportsman;
@@ -64,14 +65,16 @@ namespace BIVT_2024_Lab_6
             {
                 if (sportsmen == null) return;
                 var s = Sportsmen;
+                if (s == null) return;
                 _sportsmen = new Sportsman[s.Length + sportsmen.Length];
                 Array.Copy(s, _sportsmen, s.Length);
-                Array.Copy(sportsmen, 0,_sportsmen, s.Length, sportsmen.Length);
+                Array.Copy(sportsmen, 0, _sportsmen, s.Length, sportsmen.Length);
             }
             public void Add(Group group)
             {
                 if (group.Sportsmen == null) return;
                 var s = Sportsmen;
+                if (s == null) return;
                 _sportsmen = new Sportsman[_sportsmen.Length + group.Sportsmen.Length];
                 Array.Copy(s, _sportsmen, s.Length);
                 Array.Copy(group.Sportsmen, 0, _sportsmen, s.Length, group.Sportsmen.Length);
@@ -79,9 +82,9 @@ namespace BIVT_2024_Lab_6
             public void Sort()
             {
                 if (_sportsmen == null) return;
-                for (int i = 0; i< Sportsmen.Length; i++)
+                for (int i = 0; i < Sportsmen.Length; i++)
                 {
-                    for (int j =0; j< Sportsmen.Length-1-i; j++)
+                    for (int j = 0; j < Sportsmen.Length - 1 - i; j++)
                     {
                         if (_sportsmen[j].Time > _sportsmen[j + 1].Time)
                         {
@@ -95,6 +98,9 @@ namespace BIVT_2024_Lab_6
             public static Group Merge(Group group1, Group group2)
             {
                 Group groupmerge = new Group("Ans");
+                if (group1.Sportsmen == null && group2.Sportsmen == null) return group1;
+                if (group2.Sportsmen == null) return group2;
+                if (group2.Sportsmen == null) return group1;
                 groupmerge._sportsmen = new Sportsman[group1.Sportsmen.Length + group2.Sportsmen.Length];
                 int i1 = 0, i2 = 0, k = 0;
                 while (group1.Sportsmen.Length > i1 && group2.Sportsmen.Length> i2)
