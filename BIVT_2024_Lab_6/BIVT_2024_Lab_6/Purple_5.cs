@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using static BIVT_2024_Lab_6.Purple_4;
+using static Lab_6.Purple_4;
 
-namespace BIVT_2024_Lab_6
+namespace Lab_6
 {
-    internal class Purple_5
+    public class Purple_5
     {
         public struct Response
         {
@@ -173,7 +173,14 @@ namespace BIVT_2024_Lab_6
                 return topresp;
             }
 
-            
+            public void Print()
+            {
+                if (Responses == null) return;
+                foreach (var i in Responses)
+                {
+                    Console.WriteLine($"{i.Animal} {i.CharacterTrait} {i.Concept}");
+                }
+            }
         }
     }
 }
