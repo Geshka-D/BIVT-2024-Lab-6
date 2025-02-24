@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BIVT_2024_Lab_6
+namespace Lab_6
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -239,7 +239,7 @@ namespace BIVT_2024_Lab_6
             Purple_3.Participant.Sort(participants);
             foreach (var participant in participants)
             {
-                Console.WriteLine($"{participant.Name} {participant.Surname}: {participant.Score} {participant.Places[0]} {participant.TotalMark}");
+                Console.WriteLine($"{participant.Name} {participant.Surname}: {participant.Score} {participant.Places[0]}");
             }
 
            
