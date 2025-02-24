@@ -79,6 +79,7 @@ namespace Lab_6
                 _marks[index] = result;
                 index++;
             }
+            
             public static void SetPlaces(Participant[] participants)
             {
                 if (participants == null || participants.Length == 0 ) return;
@@ -90,13 +91,13 @@ namespace Lab_6
                 {
                     for (int j = 0; j < participants.Length; j++)
                     {
-                        double min = participants[j].Marks[i];
+                        double max = participants[j].Marks[i];
                         int ind = j;
                         for (int k = j + 1; k < participants.Length; k++)
                         {
-                            if (participants[k].Marks[i] < min)
+                            if (participants[k].Marks[i] > max)
                             {
-                                min = participants[k].Marks[i];
+                                max = participants[k].Marks[i];
                                 ind = k;
                             }
                         }
@@ -105,11 +106,13 @@ namespace Lab_6
                         participants[ind] = temp;
                     }
                     for (int k = 0; k < participants.Length; k++)
-                        participants[k]._places[i] = participants.Length - k;
+                        participants[k]._places[i] = k+1;
                 }
 
 
             }
+            
+
             public static void Sort(Participant[] array)
             {
                 if (array == null) return;
