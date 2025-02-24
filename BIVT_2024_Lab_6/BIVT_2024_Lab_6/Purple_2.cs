@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BIVT_2024_Lab_6
+namespace Lab_6
 {
-    internal class Purple_2
+    public class Purple_2
     {
         public struct Participant
         {
