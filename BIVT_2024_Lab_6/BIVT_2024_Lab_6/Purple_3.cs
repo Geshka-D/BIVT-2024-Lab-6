@@ -145,7 +145,7 @@ namespace Lab_6
 
                             else if (array[j].Places[0] == array[j + 1].Places[0])
                             {
-                                if (SumM(array[j]) > SumM(array[j + 1]))
+                                if (SumM(array[j]) < SumM(array[j + 1]))
                                 {
                                     Participant temp = array[j];
                                     array[j] = array[j + 1];
